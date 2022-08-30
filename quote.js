@@ -1,4 +1,10 @@
 const loadQuote = () => {
-    console.log('its working')
+    fetch('https://api.kanye.rest/')
+        .then(res => res.json())
+        .then(data => displayQuote(data))
 }
-loadQuote();
+// loadQuote();
+const displayQuote = quote => {
+    const blockQuote = document.getElementById('quote');
+    blockQuote.innerHTML = quote.quote;
+}
